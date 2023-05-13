@@ -4,7 +4,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 EStyleSheet.build();
 export default function BottomDrawer(props) {
-  console.log(props.defaultIcon);
   const [icon, setIcon] = useState('home');
 
   const onPressHandler = name => {

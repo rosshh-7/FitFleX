@@ -4,7 +4,7 @@ import Heading from './Heading';
 import NavigationBlock from './NavigationBlock';
 import Progressbar from './Progressbar';
 import GraphBox from './GraphBox';
-import Bubbles from './Bubbles';
+import Bubbles from '../../drawables/assets/Bubbles';
 
 export default function Home() {
   return (

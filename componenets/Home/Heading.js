@@ -26,14 +26,14 @@ const styles = EStyleSheet.create({
     position: 'absolute',
     flex: 1,
     alignSelf: 'center',
-    width: '90%',
+    //width: '90%',
     flexDirection: 'row',
     zIndex: 999,
     top: '5%',
     elevation: Platform.OS === 'android' ? 50 : 0,
   },
   profilePhoto: {
-    flex: 1.7,
+    flex: 1.5,
     aspectRatio: 1 / 1,
     //backgroundColor: 'blue',
     borderRadius: 5000,
@@ -41,7 +41,7 @@ const styles = EStyleSheet.create({
     //backgroundColor: 'grey',
   },
   profileInfo: {
-    flex: 6.2,
+    flex: 6,
     margin: '6%',
   },
   greeting: {

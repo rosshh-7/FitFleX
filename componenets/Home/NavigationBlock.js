@@ -85,7 +85,7 @@ const styles = EStyleSheet.create({
     width: '40%',
     aspectRatio: 1 / 1,
     backgroundColor: '#1D48B9',
-    aspectRatio: 1 / 1,
+
     borderRadius: 52,
 
     overflow: 'hidden',
