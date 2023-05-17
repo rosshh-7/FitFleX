@@ -5,7 +5,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export default function NameTag(props) {
   return (
     <View style={styles.headingBox}>
-      <Text style={styles.headingText}>{props.Name}</Text>
+      <Text style={styles.headingText}>{`${props.Name}`}</Text>
     </View>
   );
 }
