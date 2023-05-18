@@ -21,7 +21,7 @@ const styles = EStyleSheet.create({
     //flex: 1,
     //flexDirection: 'column',
     borderRadius: 25,
-    top: '6%',
+    top: '4.5%',
     left: '2%',
     borderWidth: 2,
     borderColor: '#9E8585',

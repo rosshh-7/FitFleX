@@ -89,26 +89,6 @@ export default function Calorie() {
             }}></TextInput>
         </View>
       </View>
-      {showResult ? (
-        <View style={styles.searchResult}>
-          <ScrollView>
-            {searchData.length > 0
-              ? searchData.map(d => (
-                  //<TouchableOpacity key={d} onPress={() => onSelectHandler(d)}>
-                  <View
-                    key={d}
-                    style={styles.searchResultItem}
-                    onStartShouldSetResponder={() => {
-                      onSelectHandler(d);
-                    }}>
-                    <Text>{d}</Text>
-                  </View>
-                  //</TouchableOpacity>
-                ))
-              : null}
-          </ScrollView>
-        </View>
-      ) : null}
 
       <View style={styles.formbody}>
         <View
@@ -207,37 +187,87 @@ export default function Calorie() {
           <Text style={{flex: 1, fontSize: 13, padding: 3}}>Date</Text>
         </View>
       </View>
+      {showResult ? (
+        <View style={styles.searchResult}>
+          <ScrollView>
+            {searchData.length > 0
+              ? searchData.map(d => (
+                  //<TouchableOpacity key={d} onPress={() => onSelectHandler(d)}>
+                  <View
+                    key={d}
+                    style={styles.searchResultItem}
+                    onStartShouldSetResponder={() => {
+                      onSelectHandler(d);
+                    }}>
+                    <Text>{d}</Text>
+                  </View>
+                  //</TouchableOpacity>
+                ))
+              : null}
+          </ScrollView>
+        </View>
+      ) : null}
       <View style={styles.submitButton}>
         <Text style={styles.submitText}>Done</Text>
       </View>
       <View style={styles.tableHeading}>
         <Text style={styles.Heading}>Past History</Text>
       </View>
-
-      <View
-        style={{
-          width: '100%',
-          flex: 1,
-          aspectRatio: 1.55 / 1,
-          backgroundColor: 'red',
-          position: 'absolute',
-          top: '50%',
-        }}>
-        <HistoryTable />
+      <View style={styles.pagination}>
+        <Pressable
+          onPress={() => console.warn('previous ')}
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Icon name={'angle-left'} color={'#000'} size={18} />
+        </Pressable>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: '#646873',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text style={styles.paginationfont}> 1</Text>
+        </View>
+        <Pressable
+          onPress={() => console.warn('next')}
+          style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <Icon name={'angle-right'} color={'#000'} size={18} />
+        </Pressable>
       </View>
+
+      <HistoryTable />
     </>
   );
 }
 
 const styles = EStyleSheet.create({
+  pagination: {
+    flex: 1,
+    maxWidth: '55%',
+    aspectRatio: 4.5 / 1,
+    position: 'absolute',
+    // alignSelf: 'flex-end',
+    bottom: '16%',
+    right: '2%',
+    //backgroundColor: 'blue',
+    flexDirection: 'row',
+  },
+  paginationfont: {
+    fontSize: '1.4rem',
+    color: '#000',
+  },
   SearchBar: {
     position: 'absolute',
     width: '88%',
-    aspectRatio: 4.9 / 1,
+    aspectRatio: 5.5 / 1,
     backgroundColor: '#D9D9D9',
     alignSelf: 'center',
     flex: 1,
-    top: '16%',
+    top: '14%',
     borderRadius: 42,
     flexDirection: 'row',
     overflow: 'hidden',
@@ -273,8 +303,8 @@ const styles = EStyleSheet.create({
     position: 'absolute',
     zindex: 99,
     alignSelf: 'center',
-    top: '27.3%',
-    elevation: Platform.OS === 'android' ? 50 : 0,
+    top: '23.3%',
+    elevation: Platform.OS === 'android' ? 500 : 0,
     flexDirection: 'column',
     overflow: 'scroll',
   },
@@ -292,11 +322,12 @@ const styles = EStyleSheet.create({
     // aspectRatio: 5.3 / 1,
     flex: 1,
     position: 'absolute',
-    top: '28%',
+    top: '24.5%',
     // backgroundColor: 'white',
     alignSelf: 'center',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+    elevation: Platform.OS === 'android' ? 50 : 0,
   },
 
   quantity: {
@@ -334,7 +365,7 @@ const styles = EStyleSheet.create({
     aspectRatio: 7 / 1,
     position: 'absolute',
     // alignSelf: 'flex-end',
-    top: '39%',
+    top: '35%',
     right: '6%',
     backgroundColor: '#082B85',
     padding: 10,
@@ -351,7 +382,7 @@ const styles = EStyleSheet.create({
     aspectRatio: 7 / 1,
     position: 'absolute',
     // alignSelf: 'flex-end',
-    top: '46%',
+    top: '41.5%',
     left: '2%',
     // backgroundColor: '#082B85',
     // padding: 10,

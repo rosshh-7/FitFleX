@@ -16,42 +16,114 @@ export default function HistoryTable() {
   }
 
   return (
-    <View style={styles.container}>
-      <ScrollView horizontal={true}>
-        <View>
-          <Table style={{flex: 1}}>
-            <Row
-              data={tableHead}
-              widthArr={widthArr}
-              style={styles.header}
-              textStyle={styles.text}
-            />
-          </Table>
-          <ScrollView style={styles.dataWrapper}>
-            <Table borderStyle={{borderWidth: 1, borderColor: '#C1C0B9'}}>
-              {tableData.map((rowData, index) => (
-                <Row
-                  key={index}
-                  data={rowData}
-                  widthArr={widthArr}
-                  style={[
-                    styles.row,
-                    index % 2 && {backgroundColor: '#F7F6E7'},
-                  ]}
-                  textStyle={styles.text}
-                />
-              ))}
-            </Table>
-          </ScrollView>
+    <View
+      style={{
+        width: '100%',
+        flex: 1,
+        aspectRatio: 1.55 / 1,
+        //backgroundColor: 'red',
+        position: 'absolute',
+        top: '46%',
+        flexDirection: 'column',
+      }}>
+      <View style={styles.tableHeading}>
+        <View style={styles.TableheadText1}></View>
+        <View style={styles.TableheadText2}></View>
+        <View style={styles.TableheadText3}></View>
+      </View>
+      <View style={styles.tableBody}>
+        <View style={[styles.tableRow, styles.bgcolor1]}>
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
         </View>
-      </ScrollView>
+        <View style={[styles.tableRow, styles.bgcolor2]}>
+          {/* 2 */}
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
+        </View>
+        <View style={[styles.tableRow, styles.bgcolor1]}>
+          {/* 3 */}
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
+        </View>
+        <View style={[styles.tableRow, styles.bgcolor2]}>
+          {/* 4 */}
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
+        </View>
+        <View style={[styles.tableRow, styles.bgcolor1]}>
+          {/* 5 */}
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
+        </View>
+        <View style={[styles.tableRow, styles.bgcolor2]}>
+          {/* 6 */}
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
+        </View>
+        <View style={[styles.tableRow, styles.bgcolor1]}>
+          {/* 7 */}
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
+        </View>
+        <View style={[styles.tableRow, styles.bgcolor2]}>
+          {/* 8 */}
+          <View style={styles.TableBodyText1}></View>
+          <View style={styles.TableBodyText2}></View>
+          <View style={styles.TableBodyText3}></View>
+        </View>
+      </View>
     </View>
   );
 }
+
 const styles = EStyleSheet.create({
-  container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff'},
-  header: {height: 50, backgroundColor: '#537791'},
-  text: {textAlign: 'center', fontWeight: '100'},
-  dataWrapper: {marginTop: -1},
-  row: {height: 40, backgroundColor: '#E7E6E1'},
+  tableHeading: {
+    flex: 0.7,
+    backgroundColor: '#082B85',
+    flexDirection: 'row',
+  },
+  tableBody: {
+    flex: 4,
+    backgroundColor: 'blue',
+  },
+  TableheadText1: {
+    flex: 1.2,
+  },
+  TableheadText2: {
+    flex: 1.2,
+  },
+  TableheadText3: {
+    flex: 1.5,
+  },
+  TableBodyText1: {
+    flex: 1.2,
+  },
+  TableBodyText2: {
+    flex: 1.2,
+  },
+  TableBodyText3: {
+    flex: 1.5,
+  },
+  tableRow: {
+    //flex: 1,
+    width: '100%',
+    //maxHeight: '12%',
+    flex: 1,
+    flexDirection: 'row',
+    borderWidth: 0.4,
+  },
+  bgcolor1: {
+    backgroundColor: '#fff',
+  },
+  bgcolor2: {
+    backgroundColor: '#646873',
+  },
 });
