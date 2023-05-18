@@ -17,6 +17,7 @@ import BottomDrawer from './componenets/Home/BottomDrawer';
 
 import Home from './componenets/Home/Home';
 import Calorie from './componenets/Calorie/Calorie';
+import TodayWorkout from './componenets/TodayWorkoutPage/TodayWorkout';
 //import {Shadow} from './chartAdds';
 
 EStyleSheet.build();
@@ -38,6 +39,8 @@ export default function App() {
           <Home />
         ) : selectedIcon == 'calorie' ? (
           <Calorie />
+        ) : selectedIcon == 'today' ? (
+          <TodayWorkout></TodayWorkout>
         ) : selectedIcon == 'book' ? (
           <Text>book page</Text>
         ) : (

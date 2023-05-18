@@ -53,7 +53,12 @@ export default function BottomDrawer(props) {
         </View>
       </View>
       <View style={styles.centerWidget}>
-        <Icon name={'plus'} color={'white'} size={36} />
+        <Icon
+          name={'plus'}
+          color={icon == 'today' ? 'black' : 'white'}
+          size={36}
+          onPress={() => onPressHandler('today')}
+        />
       </View>
     </>
   );
