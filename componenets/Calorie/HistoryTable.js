@@ -40,56 +40,98 @@ export default function HistoryTable() {
       <View style={styles.tableBody}>
         <View style={[styles.tableRow, styles.bgcolor1]}>
           <View style={styles.TableBodyText1}>
-            <Text></Text>
+            <Text style={{color: '#fff'}}> Date</Text>
           </View>
           <View style={styles.TableBodyText2}>
-            <Text></Text>
+            <Text style={{color: '#fff'}}> Date</Text>
           </View>
           <View style={styles.TableBodyText3}>
-            <Text></Text>
+            <Text style={{color: '#fff'}}> Date</Text>
           </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor2]}>
           {/* 2 */}
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor1]}>
           {/* 3 */}
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor2]}>
           {/* 4 */}
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor1]}>
           {/* 5 */}
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor2]}>
           {/* 6 */}
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor1]}>
           {/* 7 */}
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor2]}>
           {/* 8 */}
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text style={{color: '#fff'}}> Date</Text>
+          </View>
         </View>
       </View>
     </View>
@@ -124,12 +166,18 @@ const styles = EStyleSheet.create({
   },
   TableBodyText1: {
     flex: 1.2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   TableBodyText2: {
     flex: 1.2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   TableBodyText3: {
     flex: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   tableRow: {
     //flex: 1,
