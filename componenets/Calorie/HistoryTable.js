@@ -180,9 +180,7 @@ const styles = EStyleSheet.create({
     justifyContent: 'center',
   },
   tableRow: {
-    //flex: 1,
     width: '100%',
-    //maxHeight: '12%',
     flex: 1,
     flexDirection: 'row',
     borderWidth: 0.4,
