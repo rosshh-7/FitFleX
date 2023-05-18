@@ -27,15 +27,27 @@ export default function HistoryTable() {
         flexDirection: 'column',
       }}>
       <View style={styles.tableHeading}>
-        <View style={styles.TableheadText1}></View>
-        <View style={styles.TableheadText2}></View>
-        <View style={styles.TableheadText3}></View>
+        <View style={styles.TableheadText1}>
+          <Text style={{color: '#fff'}}> Date</Text>
+        </View>
+        <View style={styles.TableheadText2}>
+          <Text style={{color: '#fff'}}>Total Calories</Text>
+        </View>
+        <View style={styles.TableheadText3}>
+          <Text style={{color: '#fff'}}>Options</Text>
+        </View>
       </View>
       <View style={styles.tableBody}>
         <View style={[styles.tableRow, styles.bgcolor1]}>
-          <View style={styles.TableBodyText1}></View>
-          <View style={styles.TableBodyText2}></View>
-          <View style={styles.TableBodyText3}></View>
+          <View style={styles.TableBodyText1}>
+            <Text></Text>
+          </View>
+          <View style={styles.TableBodyText2}>
+            <Text></Text>
+          </View>
+          <View style={styles.TableBodyText3}>
+            <Text></Text>
+          </View>
         </View>
         <View style={[styles.tableRow, styles.bgcolor2]}>
           {/* 2 */}
@@ -96,12 +108,19 @@ const styles = EStyleSheet.create({
   },
   TableheadText1: {
     flex: 1.2,
+    alignItems: 'center',
+
+    justifyContent: 'center',
   },
   TableheadText2: {
     flex: 1.2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   TableheadText3: {
     flex: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   TableBodyText1: {
     flex: 1.2,
