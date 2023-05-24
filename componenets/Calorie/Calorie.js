@@ -213,53 +213,12 @@ export default function Calorie() {
       <View style={styles.tableHeading}>
         <Text style={styles.Heading}>Past History</Text>
       </View>
-      <View style={styles.pagination}>
-        <Pressable
-          onPress={() => console.warn('previous ')}
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Icon name={'angle-left'} color={'#000'} size={18} />
-        </Pressable>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: '#646873',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text style={styles.paginationfont}> 1</Text>
-        </View>
-        <Pressable
-          onPress={() => console.warn('next')}
-          style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Icon name={'angle-right'} color={'#000'} size={18} />
-        </Pressable>
-      </View>
-
       <HistoryTable />
     </>
   );
 }
 
 const styles = EStyleSheet.create({
-  pagination: {
-    flex: 1,
-    maxWidth: '55%',
-    aspectRatio: 4.5 / 1,
-    position: 'absolute',
-    // alignSelf: 'flex-end',
-    bottom: '16%',
-    right: '2%',
-    //backgroundColor: 'blue',
-    flexDirection: 'row',
-  },
-  paginationfont: {
-    fontSize: '1.4rem',
-    color: '#000',
-  },
   SearchBar: {
     position: 'absolute',
     width: '88%',

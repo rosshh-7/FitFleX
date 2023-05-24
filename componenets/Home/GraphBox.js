@@ -54,6 +54,7 @@ export default function GraphBox() {
             //fillShadowGradient: '#1D48B9',
             fillShadowGradientFrom: '#1D48B9',
             fillShadowGradientTo: '#D7DEEF',
+
             fillShadowGradientOpacity: 0.9,
             decimalPlaces: 0, // optional, defaults to 2dp
             color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
@@ -68,6 +69,7 @@ export default function GraphBox() {
           }}
           style={{
             marginVertical: 5,
+            marginLeft: 8,
           }}
         />
       </View>
@@ -81,7 +83,6 @@ const styles = EStyleSheet.create({
     aspectRatio: 1.8 / 1,
     //backgroundColor: 'red',
     top: '34%',
-    elevation: Platform.OS === 'android' ? -1 : 0,
   },
   chartTag1: {
     //fontSize: '0.8rem',

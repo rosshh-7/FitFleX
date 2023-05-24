@@ -24,7 +24,8 @@ const styles = EStyleSheet.create({
     //alignSelf: 'flex-end',
     top: '6%',
     right: '-8%',
-    zIndex: -1,
+    zIndex: 99,
+    elevation: 99,
   },
   bubble2: {
     position: 'absolute',
@@ -36,5 +37,6 @@ const styles = EStyleSheet.create({
     //alignSelf: 'flex-end',
     top: '15%',
     right: '-9%',
+    elevation: 100,
   },
 });

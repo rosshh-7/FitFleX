@@ -1,4 +1,4 @@
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground, Pressable} from 'react-native';
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -8,7 +8,9 @@ export default function NavigationBlock() {
     <>
       {/* Navigation divs Start */}
       <View style={styles.mainBlock}>
-        <View style={styles.navBlock1}>
+        <Pressable
+          style={styles.navBlock1}
+          onPress={() => console.log('journey')}>
           <ImageBackground
             source={require('../../drawables/images/navImage.jpg')}
             resizeMode="contain"
@@ -36,8 +38,10 @@ export default function NavigationBlock() {
               <Text style={styles.navText}>Journey</Text>
             </View>
           </ImageBackground>
-        </View>
-        <View style={styles.navBlock2}>
+        </Pressable>
+        <Pressable
+          style={styles.navBlock2}
+          onPress={() => console.log('Routine')}>
           <ImageBackground
             source={require('../../drawables/images/navImage.jpg')}
             resizeMode="contain"
@@ -65,7 +69,7 @@ export default function NavigationBlock() {
               <Text style={styles.navText}>Routine</Text>
             </View>
           </ImageBackground>
-        </View>
+        </Pressable>
       </View>
       {/* Navigation divs End */}
     </>
