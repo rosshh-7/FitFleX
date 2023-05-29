@@ -83,7 +83,7 @@ import org.apache.tools.ant.taskdefs.condition.Os
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 project.ext.vectoricons = [
         iconFontNames: [ 'FontAwesome.ttf', 'FontAwesome5_Regular.ttf',
-             'FontAwesome5_Solid.ttf', 'FontAwesome5_Brands.ttf','MaterialIcons.ttf', 'EvilIcons.ttf','MaterialCommunityIcons.ttf'  ] // <-- add this line (1/2)
+             'FontAwesome5_Solid.ttf', 'FontAwesome5_Brands.ttf','MaterialIcons.ttf', 'EvilIcons.ttf','MaterialCommunityIcons.ttf','Ionicons.ttf'  ] // <-- add this line (1/2)
 ]
 
 project.ext.react = [

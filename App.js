@@ -18,6 +18,7 @@ import BottomDrawer from './componenets/Home/BottomDrawer';
 import Home from './componenets/Home/Home';
 import Calorie from './componenets/Calorie/Calorie';
 import TodayWorkout from './componenets/TodayWorkoutPage/TodayWorkout';
+import LoginMain from './componenets/LoginPage/LoginMain';
 //import {Shadow} from './chartAdds';
 
 EStyleSheet.build();
@@ -35,6 +36,9 @@ export default function App() {
   return (
     <SafeAreaView>
       <View style={styles.mainWindow}>
+        <LoginMain />
+
+        {/*         
         {selectedIcon == 'home' ? (
           <Home />
         ) : selectedIcon == 'calorie' ? (
@@ -45,9 +49,9 @@ export default function App() {
           <Text>book page</Text>
         ) : (
           <Text>friends page</Text>
-        )}
-
-        <BottomDrawer iconPress={onIconPress} />
+        )} */}
+        {/* 
+        <BottomDrawer iconPress={onIconPress} /> */}
       </View>
     </SafeAreaView>
   );
