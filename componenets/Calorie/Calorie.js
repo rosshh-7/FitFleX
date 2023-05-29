@@ -1,13 +1,4 @@
-import {
-  View,
-  Text,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-  Button,
-  Alert,
-  Pressable,
-} from 'react-native';
+import {View, Text, TextInput, ScrollView, Pressable} from 'react-native';
 import React, {useState} from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Bubbles from '../../drawables/assets/Bubbles';
@@ -19,8 +10,11 @@ import SelectDropdown from 'react-native-select-dropdown';
 import DatePicker from '@react-native-community/datetimepicker';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import HistoryTable from './HistoryTable';
+import axios from 'axios';
 enableScreens();
+//https://api.nal.usda.gov/fdc/v1/foods/search?query=cheddar%20cheese&dataType=&pageSize=25&pageNumber=1&sortBy=dataType.keyword&sortOrder=asc&api_key=uC8CmQZJeWshie8ssetq2k3OrLkqQfBBnBAgCT2h
 
+//https://api.edamam.com/api/food-database/v2/parser?app_id=285833ba&app_key=db4d685a9410aba849364dc829e9fafc%09&ingr=rolled%20oats&nutrition-type=logging
 export default function Calorie() {
   const [searchItem, setSearchItem] = useState('');
   const [date, setDate] = useState('Date');
@@ -53,24 +47,48 @@ export default function Calorie() {
 
   const [quantity, setQuantity] = useState('');
 
-  const searchHandler = itemSearched => {
-    setSearchItem(itemSearched);
-    setShowResult(true);
-    if (itemSearched) {
-      setSearchData([
-        'rolled oats',
-        'quaker oats proridge',
-        'old-fashioned Oats',
-        '2-mins oatmeal',
-        'flat Oats',
-        'Steel Cut Oats',
-      ]);
+  const fetchAutoCompleteHandler = async () => {
+    const response = await fetch(
+      'https://api.edamam.com/auto-complete?app_id=285833ba&app_key=db4d685a9410aba849364dc829e9fafc&q=' +
+        item,
+    );
+  };
+
+  const searchHandler = async item => {
+    setSearchItem(item);
+    console.log(
+      `https://api.edamam.com/auto-complete?app_id=285833ba&app_key=db4d685a9410aba849364dc829e9fafc&q=${item}`,
+    );
+    if (item.trim()) {
+      let response = await axios.get(
+        `https://api.edamam.com/auto-complete?app_id=285833ba&app_key=db4d685a9410aba849364dc829e9fafc&q=${item}`,
+      );
+      console.log(response.data);
+      if (response.data.length > 0) {
+        setShowResult(true);
+        setSearchData(response.data);
+      } else {
+        setShowResult(false);
+      }
+    } else {
+      setShowResult(false);
     }
   };
-  const onSelectHandler = itemSelected => {
+  const onSelectHandler = async itemSelected => {
     setSearchItem(itemSelected);
     setShowResult(false);
+    let response = await axios.get(
+      `https://api.edamam.com/api/food-database/v2/parser?app_id=285833ba&app_key=db4d685a9410aba849364dc829e9fafc&ingr=${itemSelected}&nutrition-type=logging`,
+    );
+
+    let data = response.data.hints[0];
+    console.log(data);
   };
+
+  const onSaveHandler = () => {
+    console.log('hello');
+  };
+
   return (
     <>
       <NameTag Name={'Calorie Tracker'} />
@@ -104,6 +122,7 @@ export default function Calorie() {
           <View
             style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <TextInput
+              textAlign="center"
               style={styles.quantity}
               placeholder="Type here"
               value={quantity}
@@ -187,6 +206,13 @@ export default function Calorie() {
           <Text style={{flex: 1, fontSize: 13, padding: 3}}>Date</Text>
         </View>
       </View>
+
+      <Pressable style={styles.submitButton} onPress={onSaveHandler}>
+        <Text style={styles.submitText}>Save</Text>
+      </Pressable>
+      <View style={styles.tableHeading}>
+        <Text style={styles.Heading}>Past History</Text>
+      </View>
       {showResult ? (
         <View style={styles.searchResult}>
           <ScrollView>
@@ -207,12 +233,6 @@ export default function Calorie() {
           </ScrollView>
         </View>
       ) : null}
-      <View style={styles.submitButton}>
-        <Text style={styles.submitText}>Done</Text>
-      </View>
-      <View style={styles.tableHeading}>
-        <Text style={styles.Heading}>Past History</Text>
-      </View>
       <HistoryTable />
     </>
   );
@@ -222,7 +242,8 @@ const styles = EStyleSheet.create({
   SearchBar: {
     position: 'absolute',
     width: '88%',
-    aspectRatio: 5.5 / 1,
+    height: '8.5%',
+    //aspectRatio: 5.5 / 1,
     backgroundColor: '#D9D9D9',
     alignSelf: 'center',
     flex: 1,
@@ -258,11 +279,11 @@ const styles = EStyleSheet.create({
     width: '74%',
     flex: 1,
     aspectRatio: 1.9 / 1,
-    backgroundColor: 'red',
+
     position: 'absolute',
     zindex: 99,
     alignSelf: 'center',
-    top: '23.3%',
+    top: '22.5%',
     elevation: Platform.OS === 'android' ? 500 : 0,
     flexDirection: 'column',
     overflow: 'scroll',
@@ -290,18 +311,14 @@ const styles = EStyleSheet.create({
   },
 
   quantity: {
-    //flex: 2.5,
-
     padding: 10,
-
     backgroundColor: '#D9D9D9',
-    fontSize: '1rem',
+    fontSize: '0.95rem',
     borderRadius: 30,
-    //alignSelf: 'center',
   },
   optionFont: {
     color: '#000',
-    fontSize: '1rem',
+    fontSize: '0.95rem',
   },
   block3: {
     flex: 1,
@@ -316,14 +333,14 @@ const styles = EStyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: '1.1rem',
+    fontSize: '0.95rem',
     color: '#000',
   },
   submitButton: {
     flex: 1,
     aspectRatio: 7 / 1,
     position: 'absolute',
-    // alignSelf: 'flex-end',
+
     top: '35%',
     right: '6%',
     backgroundColor: '#082B85',
@@ -340,14 +357,9 @@ const styles = EStyleSheet.create({
     flex: 1,
     aspectRatio: 7 / 1,
     position: 'absolute',
-    // alignSelf: 'flex-end',
+
     top: '41.5%',
     left: '2%',
-    // backgroundColor: '#082B85',
-    // padding: 10,
-    // borderRadius: 24,
-    // borderWidth: 2,
-    // borderColor: '#927B7B',
   },
   Heading: {
     fontSize: '1.5rem',
